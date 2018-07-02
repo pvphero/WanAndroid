@@ -204,7 +204,7 @@ public class LMRecyclerView extends RecyclerView {
     /**
      * 显示底部加载更多
      */
-    private void showLoadMore() {
+    public void showLoadMore() {
         showFooterStatus(R.layout.item_footer_loading_more);
         setIsReClickLoadMore(false);
     }

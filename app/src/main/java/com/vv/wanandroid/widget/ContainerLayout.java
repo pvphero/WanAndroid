@@ -11,9 +11,10 @@ import com.vv.wanandroid.R;
 
 /**
  * Created by ShenZhenWei on 2018/5/31.
+ * 加载各种状态的布局(empty、loading、error、content)
  */
 
-public class ContainerLayout extends FrameLayout{
+public class ContainerLayout extends FrameLayout {
 
     private Context mContext;
     private LayoutInflater mInflater;
@@ -22,18 +23,18 @@ public class ContainerLayout extends FrameLayout{
     private View mEmptyView;
     private View mContentView;
 
-    public ContainerLayout(Context context,AttributeSet attrs) {
+    public ContainerLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.mContext=context;
-        this.mInflater=LayoutInflater.from(context);
+        this.mContext = context;
+        this.mInflater = LayoutInflater.from(context);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mLoadingView=mInflater.inflate(R.layout.loading_layout,this,false);
-        mErrorView=mInflater.inflate(R.layout.error_layout,this,false);
-        mEmptyView=mInflater.inflate(R.layout.empty_layout,this,false);
+        mLoadingView = mInflater.inflate(R.layout.loading_layout, this, false);
+        mErrorView = mInflater.inflate(R.layout.error_layout, this, false);
+        mEmptyView = mInflater.inflate(R.layout.empty_layout, this, false);
 
         addView(mLoadingView);
         addView(mErrorView);
@@ -47,50 +48,59 @@ public class ContainerLayout extends FrameLayout{
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        if (changed){
-            int count=getChildCount();
-            for (int i=0;i<count;i++){
-                mContentView=getChildAt(i);
-                if (mContentView instanceof RecyclerView){
+        if (changed) {
+            int count = getChildCount();
+            for (int i = 0; i < count; i++) {
+                mContentView = getChildAt(i);
+                if (mContentView instanceof RecyclerView) {
                     break;
                 }
             }
         }
     }
 
-    //loading
-    public void showLoading(){
+
+    /**
+     * loading
+     */
+    public void showLoading() {
         mLoadingView.setVisibility(VISIBLE);
         mErrorView.setVisibility(GONE);
         mEmptyView.setVisibility(GONE);
-        if (mContentView!=null){
+        if (mContentView != null) {
             mContentView.setVisibility(GONE);
         }
     }
 
-    //error
-    public void showError(){
+
+    /**
+     * error
+     */
+    public void showError() {
         mErrorView.setVisibility(VISIBLE);
         mLoadingView.setVisibility(GONE);
         mEmptyView.setVisibility(GONE);
-        if (mContentView!=null){
+        if (mContentView != null) {
             mContentView.setVisibility(GONE);
         }
     }
 
     //empty
-    public void showEmpty(){
+    public void showEmpty() {
         mEmptyView.setVisibility(VISIBLE);
         mLoadingView.setVisibility(GONE);
         mErrorView.setVisibility(GONE);
-        if (mContentView!=null){
+        if (mContentView != null) {
             mContentView.setVisibility(GONE);
         }
     }
 
-    //content
-    public void showContent(){
-        if (mContentView!=null){
+
+    /**
+     * content
+     */
+    public void showContent() {
+        if (mContentView != null) {
             mContentView.setVisibility(VISIBLE);
         }
         mLoadingView.setVisibility(GONE);

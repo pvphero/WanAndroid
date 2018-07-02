@@ -27,6 +27,11 @@ public class App extends Application {
     private void initAutoLayout() {
     }
 
+    /**
+     * 获取Context
+     *
+     * @return context
+     */
     public static Context getmContext() {
         return mContext;
     }

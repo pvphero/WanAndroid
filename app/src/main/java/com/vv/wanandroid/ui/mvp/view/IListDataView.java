@@ -6,29 +6,49 @@ import java.util.List;
  * Created by ShenZhenWei on 2018/5/31.
  */
 
-@SuppressWarnings({"ALL", "AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc"})
 public interface IListDataView<T> extends IView {
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
+
+    /**
+     * 页码
+     * @return
+     */
     int getPage();
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
+    /**
+     * 填充数据
+     * @param data
+     */
     void setData(List<T> data);
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
-    List<T> getDat();
+    /**
+     * 获取数据
+     * @return
+     */
+    List<T> getData();
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
-    void showContent();//显示内容
+    /**
+     * 显示内容
+     */
+    void showContent();
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
-    void autoLoadMore();//自动加载
+    /**
+     * 自动加载
+     */
+    void autoLoadMore();
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
-    void clearListData();//清空所有数据
+    /**
+     * 请空所有数据
+     */
+    void clearListData();
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
-    void showNoMore();//没用更多数据
+    /**
+     *  没有更多数据
+     */
+    void showNoMore();
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
-    int getArticleId();//文章id
+    /**
+     * 文章ID
+     * @return
+     */
+    int getArticleId();
 }

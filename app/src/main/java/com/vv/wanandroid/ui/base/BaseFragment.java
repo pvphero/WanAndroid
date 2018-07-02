@@ -13,8 +13,7 @@ import butterknife.ButterKnife;
  * Created by ShenZhenWei on 18/2/28.
  */
 
-@SuppressWarnings({"ALL", "AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc"})
-public abstract class BaseFragment<V,T extends BasePresenter<V>> extends Fragment {
+public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragment {
     protected T mPresenter;
 
     @Override
@@ -24,8 +23,8 @@ public abstract class BaseFragment<V,T extends BasePresenter<V>> extends Fragmen
 
 
         //判断是否使用MVP模式
-        mPresenter=createPresenter();
-        if (mPresenter!=null){
+        mPresenter = createPresenter();
+        if (mPresenter != null) {
             mPresenter.attachView((V) this);//因为之后所有的之类都要对应的View接口
         }
     }
@@ -33,8 +32,8 @@ public abstract class BaseFragment<V,T extends BasePresenter<V>> extends Fragmen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView=inflater.inflate(provideContentViewId(),container,false);
-        ButterKnife.bind(this,rootView);
+        View rootView = inflater.inflate(provideContentViewId(), container, false);
+        ButterKnife.bind(this, rootView);
         initView(rootView);
         return rootView;
     }
@@ -50,12 +49,10 @@ public abstract class BaseFragment<V,T extends BasePresenter<V>> extends Fragmen
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mPresenter!=null){
+        if (mPresenter != null) {
             mPresenter.detachView();
         }
     }
-
-
 
 
     public void init() {
@@ -71,10 +68,8 @@ public abstract class BaseFragment<V,T extends BasePresenter<V>> extends Fragmen
     }
 
     //用于创建Presenter和判断是否使用MVP模式(由子类实现)
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
     protected abstract T createPresenter();
 
     //得到当前页面的布局文件id(由子类实现)
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
     protected abstract int provideContentViewId();
 }
