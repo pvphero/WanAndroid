@@ -2,4 +2,13 @@
     <string name="app_name">WanAndroid</string>
     <string name="home">首页</string>
     <string name="system">知识体系</string>
+
+    <string name="navigation_drawer_open">打开</string>
+    <string name="navigation_drawer_close">关闭</string>
+
+    <string name="favorite_article">喜欢的文章</string>
+    <string name="favorite_web">喜欢的网站</string>
+    <string name="about_us">关于我们</string>
+    <string name="version_format">%1$s\n%2$s</string>
+    <string name="exit">退出登录</string>
 </resources>

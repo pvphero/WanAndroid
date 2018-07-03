@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import com.vv.wanandroid.R;
 import com.vv.wanandroid.event.RxEvent;
 
+import butterknife.ButterKnife;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.subjects.PublishSubject;
 
@@ -68,6 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         //注册事件
         mSubject = mRxEvent.registerEvent(registerEvent());
         mDisposableObserver = new ReceivedEvent();
+
 
     }
 
@@ -128,6 +130,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (layoutId != 0) {
             View contentView = LayoutInflater.from(this).inflate(layoutId, mContainerLayout, false);
             mContainerLayout.addView(contentView);
+            ButterKnife.bind(this);
             initViews();
         }
     }
