@@ -12,28 +12,28 @@ import java.util.ArrayList;
 
 public class NoAlphaItemAnimator extends SimpleItemAnimator {
 
-    private static final boolean DEBUG=false;
+    private static final boolean DEBUG = false;
 
     private static TimeInterpolator sDefaultInterpolator;
 
-    private ArrayList<RecyclerView.ViewHolder> mPendingRemovals=new ArrayList<>();
-    private ArrayList<RecyclerView.ViewHolder> mPendingAdditions=new ArrayList<>();
-    private ArrayList<NoAlphaItemAnimator.MoveInfo> mPendingMoves=new ArrayList<>();
-    private ArrayList<NoAlphaItemAnimator.ChanegInfo> mPendingChanges=new ArrayList<>();
+    private ArrayList<RecyclerView.ViewHolder> mPendingRemovals = new ArrayList<>();
+    private ArrayList<RecyclerView.ViewHolder> mPendingAdditions = new ArrayList<>();
+    private ArrayList<NoAlphaItemAnimator.MoveInfo> mPendingMoves = new ArrayList<>();
+    private ArrayList<NoAlphaItemAnimator.ChanegInfo> mPendingChanges = new ArrayList<>();
 
-    private ArrayList<ArrayList<RecyclerView.ViewHolder>> mAdditionList=new ArrayList<>();
-    private ArrayList<ArrayList<NoAlphaItemAnimator.MoveInfo>> mMoveList=new ArrayList<>();
-    private ArrayList<ArrayList<NoAlphaItemAnimator.ChanegInfo>> mChangeList=new ArrayList<>();
+    private ArrayList<ArrayList<RecyclerView.ViewHolder>> mAdditionList = new ArrayList<>();
+    private ArrayList<ArrayList<NoAlphaItemAnimator.MoveInfo>> mMoveList = new ArrayList<>();
+    private ArrayList<ArrayList<NoAlphaItemAnimator.ChanegInfo>> mChangeList = new ArrayList<>();
 
-    ArrayList<RecyclerView.ViewHolder> mAddAnimations=new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> mMoveAnimations=new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> mRemoveAnimations=new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> mChangeAnimations=new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> mAddAnimations = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> mMoveAnimations = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> mRemoveAnimations = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> mChangeAnimations = new ArrayList<>();
 
 
-    private static class MoveInfo{
+    private static class MoveInfo {
         public RecyclerView.ViewHolder holder;
-        public int fromX,fromY,toX,toY;
+        public int fromX, fromY, toX, toY;
 
         MoveInfo(RecyclerView.ViewHolder holder, int fromX, int fromY, int toX, int toY) {
             this.holder = holder;
@@ -44,9 +44,9 @@ public class NoAlphaItemAnimator extends SimpleItemAnimator {
         }
     }
 
-    private static class ChanegInfo{
-        public RecyclerView.ViewHolder oldHolder,newHolder;
-        public int fromX,fromY ,toX,toY;
+    private static class ChanegInfo {
+        public RecyclerView.ViewHolder oldHolder, newHolder;
+        public int fromX, fromY, toX, toY;
 
         public ChanegInfo(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder) {
             this.oldHolder = oldHolder;
@@ -98,7 +98,7 @@ public class NoAlphaItemAnimator extends SimpleItemAnimator {
 
     @Override
     public void runPendingAnimations() {
-        boolean removalsPending=!mPendingAdditions.isEmpty();
+        boolean removalsPending = !mPendingAdditions.isEmpty();
 
     }
 
