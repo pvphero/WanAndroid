@@ -134,7 +134,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract boolean initToolBar();
 
-    protected abstract Intent getIntent(Intent intent);
+    protected abstract void getIntent(Intent intent);
 
     /**
      * 显示带消息的进度条
