@@ -237,13 +237,11 @@ public class LMRecyclerView extends RecyclerView {
         this.listener=listener;
     }
 
-    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
+
     public interface OnFooterAutoLoadMoreListener {
         //自动加载更多
-        @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
         void loadMore();
         //加载出错,点击重新加载
-        @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
         void reloadMore();
     }
 }
