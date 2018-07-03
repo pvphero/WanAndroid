@@ -93,7 +93,7 @@ public abstract class BaseAbListActivity<P extends BasePresenter<V>, V extends I
      * 刷新列表
      */
     public void refreshData() {
-        state = Const.PAGE_STATE.STATE_REFRESH;
+        state = Const.PageState.STATE_REFRESH;
         isAutoLoadMore = true;
         page = 0;
         loadDatas();
@@ -104,7 +104,7 @@ public abstract class BaseAbListActivity<P extends BasePresenter<V>, V extends I
         if (!isAutoLoadMore) {
             return;
         }
-        state = Const.PAGE_STATE.SATE_LOAD_MORE;
+        state = Const.PageState.SATE_LOAD_MORE;
         loadDatas();
     }
 
@@ -135,7 +135,7 @@ public abstract class BaseAbListActivity<P extends BasePresenter<V>, V extends I
     @Override
     public void showError() {
         isAutoLoadMore = false;
-        if (state == Const.PAGE_STATE.SATE_LOAD_MORE) {
+        if (state == Const.PageState.SATE_LOAD_MORE) {
             mRecyclerView.showLoadMoreError();
             mListAdapter.notifyAllData(mLisData, mRecyclerView);
         } else {
@@ -150,7 +150,7 @@ public abstract class BaseAbListActivity<P extends BasePresenter<V>, V extends I
 
     @Override
     public void showLoading(String msg) {
-        if (state == Const.PAGE_STATE.STATE_REFRESH) {
+        if (state == Const.PageState.STATE_REFRESH) {
             setRefreshing(true);
         }
     }
