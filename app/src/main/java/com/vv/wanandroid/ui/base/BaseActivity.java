@@ -89,6 +89,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 获取LayoutId
+     *
+     * @return
+     */
+    protected abstract int getLayoutId();
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -110,12 +117,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected abstract String registerEvent();
 
-    /**
-     * 获取LayoutId
-     *
-     * @return
-     */
-    protected abstract int getLayoutId();
+
 
 
     protected void onNavigationClick() {
