@@ -28,7 +28,7 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
     private SwipeRefreshLayout mRefreshlayout;
     private ContainerLayout mContainerLayout;
     private LMRecyclerView mRecyclerView;
-    private List<T> mListData=new ArrayList<>();
+    private List<T> mListData = new ArrayList<>();
     private BaseListAdapter mListAdapter;
     private int state;
     private boolean isAutoLoadMore;
@@ -37,9 +37,9 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
 
     @Override
     protected void initViews(View view) {
-        mRefreshlayout=view.findViewById(R.id.refresh_layout);
-        mContainerLayout=view.findViewById(R.id.container_layout);
-        mRecyclerView=view.findViewById(R.id.recycler_view);
+        mRefreshlayout = view.findViewById(R.id.refresh_layout);
+        mContainerLayout = view.findViewById(R.id.container_layout);
+        mRecyclerView = view.findViewById(R.id.recycler_view);
     }
 
     @Override
@@ -50,7 +50,7 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
     @Override
     public void showContent() {
         mContainerLayout.showContent();
-        mListAdapter.notifyAllData(mListData,mRecyclerView);
+        mListAdapter.notifyAllData(mListData, mRecyclerView);
     }
 
     @Override
@@ -80,7 +80,7 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
     protected abstract boolean isCanLoadMore();
 
 
-    private SwipeRefreshLayout.OnRefreshListener mOnRefreshListener=new SwipeRefreshLayout.OnRefreshListener() {
+    private SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
             refreshData();
@@ -92,7 +92,7 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
         isAutoLoadMore = true;
         page = 0;
         loadDatas();
-        LogUtils.iTag(TAG,"下拉刷新...");
+        LogUtils.iTag(TAG, "下拉刷新...");
     }
 
     @Override
@@ -102,26 +102,26 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
         }
         state = Const.PAGE_STATE.SATE_LOAD_MORE;
         loadDatas();
-        LogUtils.iTag(TAG,"加载更多...");
+        LogUtils.iTag(TAG, "加载更多...");
     }
 
     @Override
     public void reloadMore() {
-        isAutoLoadMore=true;
+        isAutoLoadMore = true;
         loadMore();
-        LogUtils.iTag(TAG,"重新加载更多...");
+        LogUtils.iTag(TAG, "重新加载更多...");
     }
 
     @Override
     public void clearListData() {
         mListData.clear();
-        LogUtils.iTag(TAG,mListData.size()+"条数据被清空");
+        LogUtils.iTag(TAG, mListData.size() + "条数据被清空");
     }
 
     @Override
     public void showNoMore() {
         mRecyclerView.showNoMoreData();
-        isAutoLoadMore=true;
+        isAutoLoadMore = true;
     }
 
     @Override
@@ -139,12 +139,12 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
     @Override
     public void showEmpty() {
         mContainerLayout.showEmpty();
-        LogUtils.iTag(TAG,"无数据");
+        LogUtils.iTag(TAG, "无数据");
     }
 
     @Override
     public int getPage() {
-        LogUtils.iTag(TAG,"页数为:"+page);
+        LogUtils.iTag(TAG, "页数为:" + page);
         return page;
     }
 
@@ -162,8 +162,8 @@ public abstract class BaseAbListFragment<P extends BasePresenter<V>, V extends I
 
     @Override
     public void showFail(String msg) {
-        ToastUtils.showToast(getActivity(),msg);
-        LogUtils.iTag(TAG,"失败");
+        ToastUtils.showToast(getActivity(), msg);
+        LogUtils.iTag(TAG, "失败");
     }
 
     private void setRefreshing(final boolean isRefreshing) {
