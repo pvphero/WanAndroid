@@ -1,7 +1,7 @@
 package com.vv.wanandroid.ui.main;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.vv.wanandroid.R;
 
