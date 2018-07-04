@@ -29,8 +29,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     Button btnSystem;
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-    @Bind(R.id.navigation_view)
-    NavigationView mNavigationView;
+//    @Bind(R.id.navigation_view)
+//    NavigationView mNavigationView;
     private int mCurrentPosition;
 
     @Override
@@ -41,8 +41,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 R.string.navigation_drawer_close);
         mToggle.syncState();
         mDrawerLayout.addDrawerListener(mToggle);
-        mNavigationView.setItemIconTintList(null);
-        mNavigationView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
+//        mNavigationView.setItemIconTintList(null);
+//        mNavigationView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
     }
 
@@ -102,13 +102,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_system:
                 break;
+            default:
+                break;
         }
     }
 
-    NavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener=new NavigationView.OnNavigationItemSelectedListener() {
+    NavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new NavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            return false;
+            switch (item.getItemId()) {
+                case R.id.menu_favorite_article:
+                    break;
+                case R.id.menu_about:
+                    break;
+                case R.id.menu_exit:
+                    break;
+                default:
+                    break;
+            }
+            return true;
         }
     };
 }
