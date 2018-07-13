@@ -29,8 +29,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     Button btnSystem;
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-//    @Bind(R.id.navigation_view)
-//    NavigationView mNavigationView;
+    @Bind(R.id.navigation_view)
+    NavigationView mNavigationView;
     private int mCurrentPosition;
 
     @Override
@@ -41,8 +41,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 R.string.navigation_drawer_close);
         mToggle.syncState();
         mDrawerLayout.addDrawerListener(mToggle);
-//        mNavigationView.setItemIconTintList(null);
-//        mNavigationView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        mNavigationView.setItemIconTintList(null);
+        mNavigationView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
     }
 
@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected boolean initToolBar() {
-        mToolbar.setTitle(R.string.app_name);
+        mToolbar.setTitle(R.string.home);
         mToolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         return true;
     }

@@ -30,7 +30,8 @@
                 android:orientation="horizontal"
                 android:gravity="bottom"
                 android:background="@color/white"
-                android:layout_alignParentBottom="true">
+                android:layout_alignParentBottom="true"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/btn_main"
@@ -60,12 +61,12 @@
         </RelativeLayout>
 
         <android.support.design.widget.NavigationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/navigation_view"
-            android:layout_gravity="left|start"
-            app:headerLayout="@layout/header_layout"
-            app:menu="@menu/navigation_menu">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/navigation_view"
+        android:layout_gravity="left|start"
+        app:headerLayout="@layout/header_layout"
+        app:menu="@menu/navigation_menu">
 
         </android.support.design.widget.NavigationView>
 
